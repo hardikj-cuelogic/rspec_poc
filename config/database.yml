@@ -1,0 +1,33 @@
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sample_development
+  username: postgres
+  password:
+  host: localhost
+  port: 5432
+
+# development:
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: false
+#   database: test-mysql2_development
+#   pool: 5
+#   username: root
+#   password: root
+#   socket: /tmp/mysql.sock
+#   host: 127.0.0.1
+#   port: 3306
